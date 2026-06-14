@@ -1,102 +1,284 @@
-# 🏥 Healthcare Patient Insights
+<p align="center">
+  <img src="assets/banner.png" width="100%">
+</p>
 
-An end-to-end Healthcare Analytics Pipeline built on **Microsoft Fabric** using **Medallion Architecture** (Bronze → Silver → Gold), with a Power BI dashboard showcasing real-world hospital insights.
+<h1 align="center">🏥 Healthcare Patient Insights</h1>
+
+<p align="center">
+End-to-End Healthcare Analytics Pipeline built using Microsoft Fabric, PySpark, Delta Lake, and Power BI
+</p>
+
+<p align="center">
+
+![Microsoft Fabric](https://img.shields.io/badge/Microsoft-Fabric-blue?style=for-the-badge)
+![PySpark](https://img.shields.io/badge/PySpark-Data%20Engineering-orange?style=for-the-badge)
+![Delta Lake](https://img.shields.io/badge/Delta-Lake-green?style=for-the-badge)
+![Power BI](https://img.shields.io/badge/PowerBI-Dashboard-yellow?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge)
+
+</p>
 
 ---
 
-## 📊 Dashboard Preview
+# 📌 Project Overview
 
-![Dashboard](assets/hpi_dashboard_overview.png)
+Healthcare organizations generate large volumes of patient, billing, insurance, and hospital data every day. This project demonstrates how raw healthcare data can be transformed into business-ready insights using a modern Data Engineering pipeline built on Microsoft Fabric.
+
+The solution follows the **Medallion Architecture (Bronze → Silver → Gold)** and delivers interactive analytics through Power BI dashboards.
 
 ---
 
-## 🏗️ Architecture
+# 📊 Project Highlights
 
+| Metric | Value |
+|----------|----------|
+| Records Processed | 55,500+ |
+| Bronze Tables | 1 |
+| Silver Tables | 1 |
+| Gold Tables | 5 |
+| Dashboard Visuals | 10+ |
+| Total Revenue Analyzed | ₹1.42 Billion |
+
+---
+
+# 🏗️ Solution Architecture
+
+<p align="center">
+  <img src="assets/architecture.png" width="100%">
+</p>
+
+The project follows a Medallion Architecture approach:
+
+- Bronze Layer → Raw Data Storage
+- Silver Layer → Data Cleansing & Feature Engineering
+- Gold Layer → Business Aggregations
+- Semantic Model → Reporting Layer
+- Power BI → Interactive Dashboard
+
+---
+
+# ☁️ Microsoft Fabric Workspace
+
+<p align="center">
+  <img src="assets/fabric_workspace.png" width="95%">
+</p>
+
+The entire solution is implemented within Microsoft Fabric using:
+
+- Lakehouse
+- PySpark Notebooks
+- Semantic Model
+- Power BI Report
+
+---
+
+# 📈 Dashboard Preview
+
+<p align="center">
+  <img src="assets/hpi_dashboard_overview.png" width="100%">
+</p>
+
+---
+
+# 🎯 Business Problem
+
+Healthcare institutions need timely insights into:
+
+- Hospital performance
+- Revenue generation
+- Insurance coverage trends
+- Patient demographics
+- High-risk patient groups
+- Disease distribution
+
+Traditional reporting approaches are often slow and disconnected from operational systems.
+
+This solution centralizes data and provides actionable insights through an analytics-ready architecture.
+
+---
+
+# 🔄 Data Pipeline
+
+## 🥉 Bronze Layer
+
+**Notebook:** `01_bronze_ingestion.ipynb`
+
+Responsibilities:
+
+- Raw CSV ingestion
+- Schema preservation
+- Delta table creation
+- Historical data storage
+
+Output:
+
+```text
+bronze_patient_records
 ```
-Raw CSV (55,500 rows)
-      ↓
- Bronze Layer      → bronze_patient_records (raw Delta table)
-      ↓
- Silver Layer      → silver_patient_records (cleaned + 7 engineered features)
-      ↓
- Gold Layer        → 5 business-ready aggregation tables
-      ↓
- Power BI          → hpi_dashboard (10+ visuals)
+
+---
+
+## 🥈 Silver Layer
+
+**Notebook:** `02_silver_transformation.ipynb`
+
+Responsibilities:
+
+- Data cleansing
+- Null handling
+- Data validation
+- Feature engineering
+
+Generated Features:
+
+- Age Group
+- Billing Category
+- Length of Stay
+- Risk Flag
+- High Billing Flag
+
+Output:
+
+```text
+silver_patient_records
 ```
 
 ---
 
-## 🛠️ Tech Stack
+## 🥇 Gold Layer
 
-| Tool | Usage |
-|------|-------|
-| Microsoft Fabric | Unified analytics platform |
-| Lakehouse (OneLake) | Delta Lake storage |
-| PySpark | Data transformation |
-| Delta Lake | Versioned table storage |
-| Power BI | Dashboard & visualization |
-| Python | Notebook scripting |
+**Notebook:** `03_gold_aggregation.ipynb`
+
+Responsibilities:
+
+- Business aggregations
+- KPI generation
+- Analytics-ready datasets
+
+Gold Tables:
+
+```text
+gold_hospital_metrics
+gold_doctor_performance
+gold_demographics_summary
+gold_insurance_analysis
+gold_medical_condition_summary
+```
 
 ---
 
-## 📁 Project Structure
+# 📊 Key Insights Delivered
 
-```
-healthcare-patient-insights/
-├── notebooks/
+### Revenue Analysis
+
+- Total Revenue: ₹1.42 Billion
+- Top-performing hospitals identified
+- Revenue distribution across providers
+
+### Patient Demographics
+
+- Senior and middle-aged patients contribute the largest patient volume
+- High-risk cases concentrated within older age groups
+
+### Insurance Analysis
+
+- Coverage distribution analyzed across providers
+- Revenue contribution by insurance provider evaluated
+
+### Medical Conditions
+
+Top reported conditions:
+
+- Arthritis
+- Diabetes
+- Hypertension
+- Obesity
+- Asthma
+- Cancer
+
+---
+
+# 🛠️ Technology Stack
+
+| Category | Technology |
+|-----------|------------|
+| Cloud Platform | Microsoft Fabric |
+| Storage | OneLake |
+| Data Processing | PySpark |
+| Data Format | Delta Lake |
+| Programming Language | Python |
+| Analytics | Semantic Model |
+| Visualization | Power BI |
+| Architecture | Medallion Architecture |
+
+---
+
+# 📂 Repository Structure
+
+```text
+healthcare-patient-insights
+│
+├── notebooks
 │   ├── 01_bronze_ingestion.ipynb
 │   ├── 02_silver_transformation.ipynb
 │   └── 03_gold_aggregation.ipynb
-├── assets/
+│
+├── assets
+│   ├── banner.png
+│   ├── architecture.png
+│   ├── fabric_workspace.png
 │   └── hpi_dashboard_overview.png
-├── data/
-│   └── sample_data.csv
+│
+├── PowerBI
+│   └── hpi_dashboard.pbix
+│
 └── README.md
 ```
 
 ---
 
-## 🔄 Medallion Architecture
+# 🎯 Key Learnings
 
-### 🥉 Bronze Layer
-- Raw CSV ingested into Delta table
-- Column names cleaned (spaces removed)
-- 55,500 rows, 15 columns
+Through this project, I gained hands-on experience with:
 
-### 🥈 Silver Layer
-- Null handling and data type validation
-- 7 engineered features added:
-  - `Length_of_Stay` — days between admission and discharge
-  - `Age_Group` — Minor / Young Adult / Middle Aged / Senior
-  - `Billing_Category` — Low / Medium / High
-  - `Stay_Category` — Short / Medium / Long Stay
-  - `Risk_Flag` — High / Medium / Low Risk
-  - `High_Billing_Flag` — boolean for billing > 40K
-- 55,500 rows, 22 columns
-
-### 🥇 Gold Layer
-| Table | Description |
-|-------|-------------|
-| `gold_medical_condition_summary` | Avg billing, risk, stay by disease |
-| `gold_hospital_metrics` | Revenue, emergency cases by hospital |
-| `gold_doctor_performance` | Patient load, revenue per doctor |
-| `gold_demographics_summary` | Age group + billing + stay breakdown |
-| `gold_insurance_analysis` | Total billed per insurance provider |
+- Microsoft Fabric Lakehouse
+- Medallion Architecture
+- Delta Lake
+- PySpark Transformations
+- Data Quality Validation
+- Business Aggregation Design
+- Semantic Modeling
+- Power BI Dashboard Development
 
 ---
 
-## 📈 Key Insights
+# 🚀 Project Outcome
 
-- 💰 **Total Revenue:** 1.42 Billion across all hospitals
-- 🏥 **Total Patients:** 55,500
-- ⚠️ **High Risk Cases:** 6,000+
-- 🩺 **Avg Billing:** ₹25,590 per patient
-- 🏆 **Top Hospital:** Johnson PLC by total revenue
+Successfully transformed **55,500+ healthcare records** into analytics-ready datasets and delivered interactive business insights using Microsoft Fabric and Power BI.
+
+The solution demonstrates an end-to-end modern Data Engineering workflow from ingestion to visualization.
 
 ---
 
-## 📦 Dataset
+# 🔮 Future Enhancements
 
-- **Source:** [Healthcare Dataset - Kaggle](https://www.kaggle.com/datasets/prasad22/healthcare-dataset)
-- **Size:** 55,500 rows, 15 columns
-- **Domain:** Hospital patient admissions, billing, diagnostics
+- Real-time healthcare data ingestion
+- Incremental loading strategies
+- Fabric Data Pipelines
+- Automated scheduling
+- Predictive analytics using Machine Learning
+- Patient risk prediction models
+
+---
+
+# 👨‍💻 Author
+
+**Aman Kumar Singh**
+
+Data Engineering | Cloud | AI/ML
+
+GitHub: https://github.com/aman-krsingh
+
+---
+
+⭐ If you found this project useful, consider giving it a star.
